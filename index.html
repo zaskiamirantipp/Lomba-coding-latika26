@@ -15,6 +15,7 @@
             <button onclick="switchTab('report')" class="nav-btn">Buat Laporan</button>
             <button onclick="switchTab('track')" class="nav-btn">Lacak Status</button>
             <button onclick="switchTab('support')" class="nav-btn">Dukungan Mental</button>
+            <button onclick="switchTab('adminLogin')" class="nav-btn admin-menu-btn">🔒 Admin / Guru</button>
         </nav>
     </header>
 
@@ -75,7 +76,7 @@
                 <button type="submit" class="submit-btn">Kirim Laporan Secara Aman</button>
             </form>
 
-            <!-- Modal / Kotak Hasil Token setelah Kirim -->
+            <!-- Modal Hasil Token -->
             <div id="resultModal" class="modal hidden">
                 <div class="modal-content">
                     <h3>Laporan Berhasil Terkirim! 🎉</h3>
@@ -106,6 +107,32 @@
                 <textarea id="ventInput" rows="3" placeholder="Tuliskan uneg-uneg atau perasaanmu saat ini..."></textarea>
                 <button onclick="giveValidation()" class="cta-btn">Kirim Curahan Hati</button>
                 <div id="validationResponse" class="validation-output hidden"></div>
+            </div>
+        </section>
+
+        <!-- Tab Login Admin (Khusus Pengelola/Guru) -->
+        <section id="adminLogin" class="tab-content">
+            <div id="loginCard" class="card" style="max-width: 400px; margin: 2rem auto;">
+                <h2>Login Khusus Pengelola</h2>
+                <p class="subtitle" style="font-size: 0.9rem;">Masukkan sandi khusus untuk mengubah status penanganan laporan.</p>
+                <div class="form-group">
+                    <label for="adminPass">Kata Sandi Admin:</label>
+                    <input type="password" id="adminPass" placeholder="Masukkan sandi...">
+                </div>
+                <button onclick="verifyAdmin()" class="cta-btn">Masuk ke Panel Admin</button>
+                <p id="loginError" style="color: #b91c1c; font-size: 0.85rem; margin-top: 0.5rem; display: none;">Kata sandi salah!</p>
+            </div>
+
+            <!-- Panel Dashboard Admin (Tersembunyi Sebelum Login) -->
+            <div id="adminDashboard" class="hidden">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2>Panel Kontrol Guru / Admin</h2>
+                    <button onclick="logoutAdmin()" style="background: #b91c1c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Keluar Admin</button>
+                </div>
+                <p class="subtitle">Daftar semua laporan masuk. Ubah status penanganan langsung dari sini.</p>
+                <div id="adminReportsList">
+                    <!-- Daftar laporan akan dimuat lewat JavaScript -->
+                </div>
             </div>
         </section>
     </main>
