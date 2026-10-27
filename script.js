@@ -32,7 +32,7 @@ function handleReportSubmit(event) {
         location: location,
         description: description,
         identity: identity,
-        status: 'Menunggu Ditinjau', // Status bawaan saat pertama kali dikirim
+        status: 'Menunggu Ditinjau',
         date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })
     };
 
@@ -118,7 +118,6 @@ function giveValidation() {
 
 // --- SISTEM KEAMANAN & PANEL ADMIN (GURU) ---
 
-// Verifikasi Sandi Admin (Kata sandi default: "guru123" -> bisa diganti sesuai keinginan)
 function verifyAdmin() {
     const passInput = document.getElementById('adminPass').value;
     const errorText = document.getElementById('loginError');
@@ -139,7 +138,6 @@ function logoutAdmin() {
     document.getElementById('loginCard').classList.remove('hidden');
 }
 
-// Muat Daftar Laporan di Panel Admin
 function loadAdminReports() {
     const container = document.getElementById('adminReportsList');
     let reports = JSON.parse(localStorage.getItem('safeReports')) || [];
@@ -150,9 +148,7 @@ function loadAdminReports() {
     }
 
     let html = '';
-    // Tampilkan dari laporan terbaru ke terlama
     reports.slice().reverse().forEach((rep, index) => {
-        // Karena di-reverse, hitung indeks aslinya di dalam array utama `reports`
         const originalIndex = reports.length - 1 - index;
 
         html += `
@@ -180,7 +176,6 @@ function loadAdminReports() {
     container.innerHTML = html;
 }
 
-// Fungsi Simpan Perubahan Status oleh Admin
 function updateReportStatus(index) {
     const selectElement = document.getElementById(`statusSelect-${index}`);
     const newStatus = selectElement.value;
@@ -190,6 +185,6 @@ function updateReportStatus(index) {
         reports[index].status = newStatus;
         localStorage.setItem('safeReports', JSON.stringify(reports));
         alert('Status laporan berhasil diperbarui!');
-        loadAdminReports(); // Refresh tampilan admin
+        loadAdminReports();
     }
 }
