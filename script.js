@@ -1,4 +1,3 @@
-// Fungsi untuk navigasi antar tab
 function switchTab(tabId) {
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => tab.classList.remove('active'));
@@ -8,13 +7,11 @@ function switchTab(tabId) {
 
     document.getElementById(tabId).classList.add('active');
     
-    // Jika tombol diklik langsung dari event
     if (event && event.target && event.target.classList.contains('nav-btn')) {
         event.target.classList.add('active');
     }
 }
 
-// Fungsi Mengirim Laporan & Membuat Token Otomatis
 function handleReportSubmit(event) {
     event.preventDefault();
 
@@ -55,7 +52,6 @@ function switchTabExplicit(tabId) {
     document.getElementById(tabId).classList.add('active');
 }
 
-// Fungsi Melacak Status Laporan oleh Siswa
 function trackReport() {
     const inputToken = document.getElementById('trackInput').value.trim().toUpperCase();
     const resultDiv = document.getElementById('trackResult');
@@ -88,7 +84,6 @@ function trackReport() {
     }
 }
 
-// Fitur Validasi Emosi Mandiri (Self-Help Venting)
 function giveValidation() {
     const ventText = document.getElementById('ventInput').value.trim();
     const outputDiv = document.getElementById('validationResponse');
@@ -115,8 +110,6 @@ function giveValidation() {
 
     document.getElementById('ventInput').value = '';
 }
-
-// --- SISTEM KEAMANAN & PANEL ADMIN (GURU) ---
 
 function verifyAdmin() {
     const passInput = document.getElementById('adminPass').value;
