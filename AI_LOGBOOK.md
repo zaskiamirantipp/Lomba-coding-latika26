@@ -31,8 +31,8 @@ Dokumen ini merekodkan seluruh proses interaksi dan bantuan Kecerdasan Buatan (A
 * **Tanggal Interaksi:** 26/10/2026
 * **Alat AI yang Digunakan:** Gemini
 * **Contoh Prompt Utama:**
-  > *"Bagaimana cara mengatasi ralat pada kode ini?"*
-* **Bantuan AI:** AI menunjukkan bahagian kod yang bermasalah dan cara memperbaikinya.
+  > *"Bagaimana cara mengatasi ralat pada kode bagian script.js ini?"*
+* **Bantuan AI:** AI menunjukkan bahagian kode yang bermasalah dan cara memperbaikinya.
 * **Validasi & Modifikasi Mandiri:** 
   * *Ubah suai:* Saya mengaplikasikan pembetulan tersebut dan menguji semula program secara manual.
 
@@ -42,7 +42,7 @@ Dokumen ini merekodkan seluruh proses interaksi dan bantuan Kecerdasan Buatan (A
 * **Tanggal Interaksi:** 26/10/2026
 * **Alat AI yang Digunakan:** Gemini
 * **Contoh Prompt Utama:**
-  > *"Jelaskan fungsi utama bahagian kode ini."*
+  > *"Jelaskan fungsi utama bahagian kode html ini."*
 * **Bantuan AI:** AI menerangkan fungsi logik kod tersebut.
 * **Pemahaman Peserta:** 
   * Saya memahami bagaimana aliran data diproses dalam kod yang dihasilkan.
