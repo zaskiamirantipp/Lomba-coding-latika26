@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuaraAman - Ruang Laporan & Dukungan Korban Bullying</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigasi -->
+    <header>
+        <div class="logo">SuaraAman 🛡️</div>
+        <nav>
+            <button onclick="switchTab('home')" class="nav-btn active">Beranda</button>
+            <button onclick="switchTab('report')" class="nav-btn">Buat Laporan</button>
+            <button onclick="switchTab('track')" class="nav-btn">Lacak Status</button>
+            <button onclick="switchTab('support')" class="nav-btn">Dukungan Mental</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Tab Beranda -->
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <h1>Kamu Tidak Sendirian. Suaramu Berharga.</h1>
+                <p>Platform aman dan rahasia untuk menyampaikan apa yang kamu rasakan tanpa rasa takut dan tanpa harus langsung melapor ke guru BK.</p>
+                <button onclick="switchTab('report')" class="cta-btn">Mulai Lapor dengan Aman</button>
+            </div>
+            <div class="features">
+                <div class="card">
+                    <h3>🔒 100% Anonim</h3>
+                    <p>Identitasmu sepenuhnya dilindungi. Kamu bebas memilih untuk tidak menyebutkan nama.</p>
+                </div>
+                <div class="card">
+                    <h3>🎫 Token Unik</h3>
+                    <p>Dapatkan kode rahasia untuk memantau perkembangan laporanmu secara mandiri.</p>
+                </div>
+                <div class="card">
+                    <h3>🌱 Ruang Lega</h3>
+                    <p>Dapatkan validasi emosi instan dan akses ke panduan pemulihan mental.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Buat Laporan -->
+        <section id="report" class="tab-content">
+            <h2>Formulir Laporan Rahasia</h2>
+            <p class="subtitle">Ceritakan kejadian yang kamu alami. Semua kolom bersifat opsional demi kenyamananmu.</p>
+            <form id="bullyingForm" onsubmit="handleReportSubmit(event)">
+                <div class="form-group">
+                    <label for="incidentType">Jenis Kejadian:</label>
+                    <select id="incidentType" required>
+                        <option value="Verbal (Olok-olok/Ancaman)">Verbal (Olok-olok / Ancaman)</option>
+                        <option value="Fisik (Pukulan/Dorongan)">Fisik (Pukulan / Dorongan)</option>
+                        <option value="Sosial (Pengucilan)">Sosial (Pengucilan / Penyebaran Rumor)</option>
+                        <option value="Siber (Cyberbullying)">Siber (Cyberbullying)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Lokasi Kejadian:</label>
+                    <input type="text" id="location" placeholder="Contoh: Kantin sekolah, Koridor kelas X, atau Media Sosial" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Ceritakan Kejadiannya:</label>
+                    <textarea id="description" rows="5" placeholder="Tuliskan kronologi singkat yang kamu rasakan..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="identity">Identitas (Opsional - Kosongkan jika ingin anonim):</label>
+                    <input type="text" id="identity" placeholder="Nama / Kelas (Opsional)">
+                </div>
+
+                <button type="submit" class="submit-btn">Kirim Laporan Secara Aman</button>
+            </form>
+
+            <!-- Modal / Kotak Hasil Token setelah Kirim -->
+            <div id="resultModal" class="modal hidden">
+                <div class="modal-content">
+                    <h3>Laporan Berhasil Terkirim! 🎉</h3>
+                    <p>Simpan kode token rahasia di bawah ini untuk melacak status laporanmu:</p>
+                    <div class="token-box" id="generatedToken">#BL-XXXX</div>
+                    <p class="warning-text">⚠️ Catat kode ini! Kami tidak menyimpan nama atau datamu, jadi token ini adalah satu-satunya cara untuk mengecek laporanmu.</p>
+                    <button onclick="closeModal()" class="cta-btn">Saya Sudah Menyimpan Token Ini</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Lacak Status -->
+        <section id="track" class="tab-content">
+            <h2>Lacak Status Laporan</h2>
+            <p class="subtitle">Masukkan kode token rahasiamu untuk melihat perkembangan penanganan.</p>
+            <div class="track-box">
+                <input type="text" id="trackInput" placeholder="Masukkan Kode Token (Contoh: #BL-1234)">
+                <button onclick="trackReport()" class="cta-btn">Cek Status</button>
+            </div>
+            <div id="trackResult" class="track-result hidden"></div>
+        </section>
+
+        <!-- Tab Dukungan Mental -->
+        <section id="support" class="tab-content">
+            <h2>Ruang Validasi & Dukungan Mandiri</h2>
+            <p class="subtitle">Merasa sesak? Tuliskan apa yang kamu rasakan di bawah ini untuk mendapatkan validasi emosional instan.</p>
+            <div class="vent-box">
+                <textarea id="ventInput" rows="3" placeholder="Tuliskan uneg-uneg atau perasaanmu saat ini..."></textarea>
+                <button onclick="giveValidation()" class="cta-btn">Kirim Curahan Hati</button>
+                <div id="validationResponse" class="validation-output hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SuaraAman. Dibangun untuk melindungi dan menemani langkahmu.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
